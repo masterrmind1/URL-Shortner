@@ -10,6 +10,6 @@ mongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     db.collection('Users').insertOne({
         name: 'Paurnima',
         Email: 'abcd@gmail.com',
-        password: 'password'
+        password: 'passwordd'
     })
 })
