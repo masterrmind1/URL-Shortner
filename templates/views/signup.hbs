@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/styles.css">
+
+</head>
+
+<body>
+    {{>header}}
+ 
+
+<form >
+  <div class="signupcontainer">
+    <center><h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr></center>
+<center>
+    <label for="email" style="margin-left:95px">Email:</label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+    <br>
+    <label style="margin-left:60px;">Password:</label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <br> <label >Repeat Password:</label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <br>
+    <label>
+      <input type="checkbox"  style="margin-bottom:15px"> 
+    </label>
+    
+    <p>Check box if you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+</center>
+    <div style="display:flex;">
+      <button type="button" class="cancelbtn" style="margin-left: 280px;">Cancel</button>
+      <button type="submit" class="signupbtn" style="margin-left: 0;" >Sign Up</button>
+    </div>
+    
+  </div>
+</form>
+
+</body>
+
+</html>
