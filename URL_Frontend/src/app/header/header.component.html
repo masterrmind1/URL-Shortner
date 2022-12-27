@@ -1,0 +1,40 @@
+<p>
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+        <a href="" (click)="moveToHome()" style="text-decoration:none;"><span 
+           routerLinkActive="active" style="cursor: poineter;color: white;">URL Shortner</span>
+        
+        </a> <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+        <button mat-icon-button class="menuForLogin" [matMenuTriggerFor]="menu" mat-icon-button aria-label="Example icon-button with a menu">
+                
+            <mat-icon *ngIf="!isUser" id="dropdownIcon" >more_vert</mat-icon>
+              <mat-icon *ngIf="isUser" id="dropdownIcon">account_circle</mat-icon>
+      </button>
+
+
+        <div class="mat-menu">
+            <mat-menu #menu="matMenu">
+                <button *ngIf="!isUser" [routerLink]="['/login']" routerLinkActive="active" mat-menu-item>
+          <mat-icon>email</mat-icon>
+          <span>Login</span>
+        </button>
+                <button *ngIf="isUser" mat-menu-item (click)="loggedOut()">
+                  <mat-icon>email</mat-icon>
+          <span>Logout</span>
+        </button>
+                <button mat-menu-item *ngIf="isUser" [routerLink]="['/reset-password/'+id]" routerLinkActive="active">
+                  <mat-icon>edit</mat-icon>
+          <span>Reset Password</span>
+        </button>
+
+            </mat-menu>
+        </div>
+        <!-- <button *ngIf="isUser" mat-icon-button class="menuForLogin" mat-icon-button aria-label="Example icon-button with a menu" (click)="loggedOut()"><h2>Logout</h2>
+        </button> -->
+
+    </mat-toolbar>
