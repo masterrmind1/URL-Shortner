@@ -14,7 +14,7 @@ export class AppComponent {
   isLoginOrNot:boolean
   constructor(private router:Router){
     this.isLoginOrNot=false;
-    // localStorage.clear();
+    console.log(this.router.url)
 
   }
 

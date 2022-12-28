@@ -32,6 +32,14 @@ const User = new mongoose.Schema({
             }
         }
     },
+    firstName: {
+        type: String,
+        require: true,
+    },
+    lastName: {
+        type: String,
+        require: false,
+    },
     tokens: [{
         token: {
             type: String,

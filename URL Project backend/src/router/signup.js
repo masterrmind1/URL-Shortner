@@ -14,7 +14,9 @@ router.post('/signup', async(req, res) => {
                     const userEmail = req.body.email.toLowerCase()
                     const userData = new User.userSchema({
                         email: req.body.email.toLowerCase(),
-                        password: bcrypt.hashSync(req.body.password, 6)
+                        password: bcrypt.hashSync(req.body.password, 6),
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName
                     })
                     userData.save()
                     res.status(201).send({ result: 'Signup done', status: 201 })

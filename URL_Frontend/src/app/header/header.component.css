@@ -1,10 +1,15 @@
 .menuForLogin {
-    margin-left: 75%;
+    margin-left: 70%;
     border: none;
 }
 
 #dropdownIcon {
     font-size: 270% !important;
+}
+
+#dropdownIcon_login {
+    font-size: 170% !important;
+    margin-top: 20%;
 }
 
 .mat-menu {

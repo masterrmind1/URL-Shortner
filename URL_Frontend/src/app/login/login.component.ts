@@ -16,14 +16,20 @@ export class LoginComponent implements OnInit {
   matcher = new ErrorStateMatcher()
   isLoginMode = true;
   isLogin = false;
-  constructor(private router: Router, public appHttp: HttpService, private sharedata: SharedataService) { }
+  constructor(private router: Router, public appHttp: HttpService, private sharedata: SharedataService) { 
+
+    // this.sharedata.sendIsLoginPageOpen(Boolean(this.router.url=='/login'))
+  }
   email!: string;
   password!: string;
   ConfirmPassword!: string;
   httpStatus!: string;
   isForgetPassword = false;
   user_Id: any;
+  firstName:string;
+  lastName:string;
   ngOnInit(): void {
+    
     console.log(Boolean(localStorage.getItem('user')))
     if (Boolean(localStorage.getItem('user'))) {
       this.router.navigate(['/']);
@@ -39,11 +45,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (!this.isLoginMode) {
-      this.appHttp.userSignup({ email: this.email, password: this.password, confirmPassword: this.ConfirmPassword })
+      this.appHttp.userSignup({ email: this.email, password: this.password, confirmPassword: this.ConfirmPassword,
+      firstName:this.firstName, lastName:this.lastName })
         .subscribe(result => {
           this.httpStatus = result['result']
           if (result['status'] == 201) {
-            localStorage.setItem('user', JSON.stringify({ email: this.email }))
+            localStorage.setItem('user', JSON.stringify({ email: this.email, firstName: this.firstName, lastName:this.lastName }))
             this.isLogin = true;
             this.sharedata.sendIsLoginValue(this.isLogin)
             this.router.navigate(['/']
